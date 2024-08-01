@@ -2,7 +2,7 @@
 
 
 
-import fitz  # PyMuPDF
+import fitz
 import os
 import openpyxl
 import re
@@ -112,8 +112,8 @@ def main(pdf_folder, excel_file):
     write_to_excel(data_list, excel_file)
 
 if __name__ == "__main__":
-    pdf_folder = "/app/pdfs"
-    excel_file = "/app/extracted_data.xlsx"
+    pdf_folder = "D:\Yevhenii\pdfs"
+    excel_file = "D:\Yevhenii\pdfs\extracted_data.xlsx"
     main(pdf_folder, excel_file)
 
 
@@ -128,13 +128,13 @@ import os
 import pandas as pd
 
 # Шлях до папки з файлами .xls
-folder_path = '/app/pdfs/'
+folder_path = 'D:\Yevhenii\pdfs'
 
 # Отримання списку усіх файлів у папці
 files = os.listdir(folder_path)
 
 # Відфільтрування тільки файлів з розширенням .xls або .xlsx
-xls_files = [file for file in files if file.endswith('.xls') or file.endswith('.xlsx')]
+xls_files = [file for file in files if file.endswith('.xls')]
 
 # Завантаження першого файлу знайденого .xls або .xlsx
 if xls_files:
@@ -145,7 +145,7 @@ else:
     print("У папці немає файлів з розширенням .xls або .xlsx")
 
 # Завантаження другого файлу, який ми вже знаємо
-df2 = pd.read_excel('/app/extracted_data.xlsx')
+df2 = pd.read_excel('D:\Yevhenii\pdfs\extracted_data.xlsx')
 
 # Перевірка назв стовпців
 print("Стовпці у df1:", df1.columns)
@@ -183,4 +183,4 @@ merged_df['Площа_різниця'] = (merged_df['Площа, Га_x'] - merg
 merged_df['Сума_різниця'] = (merged_df['Сума з витягу_x'] - merged_df['Сума з витягу_y']).round(4)
 
 # Збереження з'єднаного DataFrame на вказаному шляху
-merged_df.to_excel('/app/pdfs/merged_file.xlsx', index=False)
+merged_df.to_excel('D:\Yevhenii\pdfs\merged_file.xlsx', index=False)
